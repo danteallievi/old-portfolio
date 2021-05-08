@@ -1,0 +1,190 @@
+// HAMBURGER SCREEN
+@include Burger {
+  .container {
+    visibility: hidden;
+  }
+  .burger {
+    visibility: visible;
+  }
+  .fondito {
+    visibility: visible;
+  }
+  transition: none;
+}
+
+// HAMBURGER SCREEN
+@include Header {
+  .container {
+    visibility: visible;
+  }
+  .burger {
+    visibility: hidden;
+  }
+  .fondito {
+    visibility: hidden;
+  }
+  transition: none;
+}
+
+// 4K SCREENS
+@include mediaXXL {
+  .container {
+    .links {
+      font-size: 45px;
+    }
+  }
+}
+
+// WIDESCREENS
+@include mediaXL {
+  .projects {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+// DESKTOP & LAPTOPS
+@include mediaLg {
+  .projects {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+// TABLETS SMALL LAPTOPS
+@include mediaMd {
+  #bg-img {
+    height: 100%;
+    overflow: hidden;
+  }
+  main#home {
+    margin: 0;
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    h1,
+    span {
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+    .lg-heading {
+      line-height: 1;
+      margin-top: 0;
+      padding-top: 30vh;
+    }
+  }
+
+  ul.menu-nav,
+  div.menu-branding {
+    float: none;
+    display: flex;
+    flex-flow: column wrap;
+    width: 100%;
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  .menu-nav {
+    transform: translate3d(0, 100%, 0);
+    height: 70vh;
+    @include easeOut;
+
+    &.show {
+      // Slide from top
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  .menu {
+    .nav-link {
+      padding: 1rem 0;
+    }
+  }
+
+  .menu-branding {
+    background: $primario;
+    transform: translate3d(0, -100%, 0);
+    @include easeOut;
+    height: 30vh;
+
+    &.show {
+      // Slide from bottom
+      transform: translate3d(0, 0, 0);
+    }
+
+    .retrato {
+      width: 150px;
+      height: 150px;
+      background: $retrato-image;
+      background-size: cover;
+    }
+  }
+
+  body {
+    height: 100%;
+  }
+
+  #about-home {
+    padding: 2rem;
+    .about-info {
+      grid-template-areas:
+        "bioimage"
+        "bio"
+        "job1"
+        "job2"
+        "job3";
+
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .projects {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+// SMARTPHONES
+@include mediaSm {
+  body {
+    height: 100%;
+  }
+
+  main#home {
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    span,
+    h1 {
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+    .lg-heading {
+      line-height: 1;
+      margin-top: 0;
+      padding-top: 20vh;
+    }
+  }
+  .projects {
+    grid-template-columns: 1fr;
+  }
+
+  #contact {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    overflow-x: hidden;
+
+    h1 {
+      font-size: 5rem;
+    }
+
+    .boxes {
+      div {
+        font-size: 1.5rem;
+      }
+    }
+  }
+}

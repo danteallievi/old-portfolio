@@ -1,0 +1,50 @@
+.container {
+  background-color: darken($primario, 10);
+  // border: solid;
+  // border-color: lighten($primario, 1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 10vh;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2vw 1vw 1.2vw 3vw;
+  // visibility: hidden;
+
+  .navs {
+    display: flex;
+    flex-direction: row;
+    text-decoration: none;
+    list-style: none;
+  }
+
+  .link {
+    height: 100%;
+    font-weight: 600;
+    margin: 3rem;
+    font-size: 25px;
+    letter-spacing: 1px;
+
+    @include easeOut;
+
+    &:hover {
+      color: lighten($secundario, 20%);
+    }
+  }
+
+  .item {
+    &.current > a {
+      color: $secundario;
+      .fas {
+        color: darken($secundario, 20);
+      }
+    }
+    .fas {
+      margin-right: 0.3vw;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}

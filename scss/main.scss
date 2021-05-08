@@ -1,0 +1,277 @@
+@import 'config';
+@import 'menu';
+@import 'stickyMenu';
+@import 'buttons';
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  @include background;
+  background-color: $primario;
+  color: set-text-color($primario);
+  height: 100%;
+  font-family: 'Arvo', serif;
+  line-height: 1.5;
+}
+
+// Headings
+h1,
+h2,
+h3 {
+  font-weight: 600;
+
+  &.lg-heading {
+    font-size: 6rem;
+  }
+
+  &.sm-heading {
+    margin-bottom: 2rem;
+    padding: 0.2rem 1rem;
+    background: rgba(lighten($primario, 3), 0.8);
+  }
+}
+
+a {
+  color: set-text-color($primario);
+  text-decoration: none;
+}
+
+header {
+  position: fixed;
+  z-index: 2;
+  width: 100%;
+}
+
+.text-secondary {
+  color: $secundario;
+}
+
+main {
+  padding: 0rem 4rem;
+  min-height: calc(100vh - 6vh);
+
+  .icons {
+    margin-top: 1.5rem;
+
+    a {
+      padding: 1rem;
+
+      &:hover {
+        color: $secundario;
+        @include easeOut();
+      }
+    }
+  }
+
+  &#home {
+    overflow: hidden;
+    h1 {
+      padding-top: 35vh;
+    }
+  }
+}
+
+// About Page
+
+#about-home {
+  min-height: calc(100vh - 6vh);
+
+  padding: 0 2rem;
+  text-align: center;
+
+  h1 {
+    padding-top: 10vh;
+  }
+
+  .sm-heading {
+    margin-bottom: 5vh;
+    font-size: 1.7rem;
+    letter-spacing: 0.5px;
+  }
+}
+
+.about-info {
+  display: grid;
+  gap: 1rem;
+  grid-template-areas:
+    
+    // 'bioimage bio bio'
+
+    'bio bio bio'
+    'job1 job2 job3';
+  grid-template-columns: repeat(3, 1fr);
+
+  // .bio-image {
+  //   grid-area: bioimage;
+  //   margin: auto;
+  //   border-radius: 50%;
+  //   border: $secundario 3px solid;
+  // }
+
+  .bio {
+    h3 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    grid-area: bio;
+    text-align: left;
+    font-size: 1.5rem;
+  }
+
+  h2,
+  h5 {
+    text-align: center;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    padding-top: 0.5rem;
+  }
+
+  h5 {
+    font-size: 1.2rem;
+    justify-content: center;
+    padding: 1rem;
+  }
+  .job-1 {
+    grid-area: job1;
+  }
+
+  .job-2 {
+    grid-area: job2;
+  }
+
+  .job-3 {
+    grid-area: job3;
+  }
+
+  .job {
+    background: lighten($primario, 5);
+    margin-top: 3rem;
+    padding: 0.5rem;
+    border-bottom: $secundario 5px solid;
+  }
+}
+
+// Work/Projects
+
+#work-home {
+  padding: 0 2rem;
+  min-height: calc(100vh - 6vh);
+  text-align: center;
+
+  h1 {
+    padding-top: 10vh;
+  }
+
+  .sm-heading {
+    margin-bottom: 5vh;
+    font-size: 1.7rem;
+    letter-spacing: 0.5px;
+  }
+}
+
+.projects {
+  display: grid;
+  gap: 2vw;
+  grid-template-columns: repeat(3, 1fr);
+
+  img {
+    width: 100%;
+    border: 3px #fff solid;
+
+    &:hover {
+      opacity: 0.5;
+      border-color: $secundario;
+      @include easeOut;
+    }
+  }
+}
+
+// Contact Page
+
+#contact {
+  padding: 0 2rem;
+  text-align: center;
+  min-height: calc(100vh - 6vh);
+  h1 {
+    padding-top: 10vh;
+  }
+
+  .sm-heading {
+    margin-bottom: 5vh;
+    font-size: 1.7rem;
+    letter-spacing: 0.5px;
+  }
+}
+
+.boxes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 10vh;
+
+  div {
+    font-size: 2rem;
+    border: 3px #fff solid;
+    padding: 1.5rem 2.5rem;
+    margin-bottom: 3rem;
+    @include easeOut;
+
+    &:hover {
+      transform: scale(1.2);
+      @include easeOut;
+      background: $secundario;
+      color: $blanco;
+      span {
+        @include easeOut;
+        color: set-text-color($secundario);
+      }
+    }
+  }
+}
+
+// Button Styles
+.btn-dark {
+  @extend .btn;
+  background: darken($primario, 50);
+  color: #fff;
+  text-align: center;
+}
+
+.btn-light {
+  @extend .btn;
+  background: lighten($primario, 50);
+  color: #333;
+  text-align: center;
+}
+
+#main-footer {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  background: darken($primario, 10);
+  color: set-text-color($primario);
+  height: 6vh;
+  .icons {
+    .iconaso {
+      font-size: 2rem;
+      margin: 0 4vw;
+      &:hover {
+        transform: scale(1.5);
+        transition: all 0.5s ease-out;
+      }
+    }
+  }
+}
+
+@import 'mobile';
